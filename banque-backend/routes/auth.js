@@ -13,7 +13,11 @@ router.post('/login', async (req, res) => {
 
     console.log("📥 Requête reçue :", req.body);
 
-    const { email, motDePasse } = req.body;
+    if (!req.body || typeof req.body !== 'object') {
+      console.warn("❌ Requête mal formée");
+      return res.status(400).json({ error: "Requête mal formée" });
+    }
+    
     if (!email || !motDePasse) {
       console.warn("❌ Champs manquants");
       return res.status(400).json({ error: "Champs requis manquants" });
