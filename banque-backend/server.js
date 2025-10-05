@@ -23,9 +23,12 @@ app.use('/images', express.static('public/images'));
 
 
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connecté à MongoDB'))
-  .catch((err) => console.error('Erreur MongoDB:', err));
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("✅ Connexion MongoDB réussie"))
+.catch((err) => console.error("❌ Erreur MongoDB :", err));
 
 // Routes ici...
 app.listen(5000, () => console.log(' Serveur lancé sur http://localhost:5000'));
