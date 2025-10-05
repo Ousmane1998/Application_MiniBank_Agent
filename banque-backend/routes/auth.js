@@ -11,28 +11,28 @@ router.post('/login', async (req, res) => {
       "nom prenom email telephone adresse role photo mot_de_passe"
     );
 
-    if (!user) return res.status(401).json({ error: 'Utilisateur introuvable' });
+    console.log("📥 Requête reçue :", req.body);
+
+    const { email, motDePasse } = req.body;
+    
+    if (!user) {
+      console.warn("❌ Utilisateur introuvable :", email);
+      return res.status(401).json({ error: 'Utilisateur introuvable' });
+    }
 
     const match = await bcrypt.compare(motDePasse, user.mot_de_passe);
-    if (!match) return res.status(401).json({ error: 'Mot de passe incorrect' });
+    if (!match) {
+      console.warn("❌ Mot de passe incorrect pour :", email);
+      return res.status(401).json({ error: 'Mot de passe incorrect' });
+    }
 
-    // ✅ Exclure le mot de passe avant de renvoyer la réponse
     const { mot_de_passe, ...userData } = user.toObject();
- res.json({
-  _id: user._id,
-  nom: user.nom,
-  prenom: user.prenom,
-  email: user.email,
-  telephone: user.telephone,
-  adresse: user.adresse,
-  role: user.role,
-  photo: user.photo
-});
+    res.json(userData);
 
 
   } catch (err) {
-    console.error("Erreur login:", err);
-    res.status(500).json({ error: 'Erreur serveur' });
+    console.error("💥 Erreur serveur :", err.message);
+    res.status(500).json({ error: 'Erreur interne du serveur' });
   }
 });
 
