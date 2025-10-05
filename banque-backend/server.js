@@ -35,5 +35,5 @@ app.listen(5000, () => console.log(' Serveur lancé sur http://localhost:5000'))
 
 // 🔒 Route non trouvée
 app.use((req, res, next) => {
-  res.status(404).redirect('/login'); // 👈 redirige vers la page login
+  res.status(404).json({ error: 'Route non trouvée' });
 });
