@@ -7,16 +7,16 @@ export default defineConfig({
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler']],
-      },
-       server: {
-    host: '0.0.0.0',
-    port: process.env.PORT || 3000
-  },
-  preview: {
-    port: parseInt(process.env.PORT) || 4173,
-    host: '0.0.0.0',
-    allowedHosts: ['minibank-frontend-vmax.onrender.com']
-  }
+      }
     }),
   ],
+  server: {
+    host: '0.0.0.0',
+    port: parseInt(process.env.PORT) || 3000
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: parseInt(process.env.PORT) || 4173,
+    allowedHosts: ['minibank-frontend-vmax.onrender.com']
+  }
 })
