@@ -11,6 +11,11 @@ export default defineConfig({
        server: {
     host: '0.0.0.0',
     port: process.env.PORT || 3000
+  },
+  preview: {
+    port: parseInt(process.env.PORT) || 4173,
+    host: '0.0.0.0',
+    allowedHosts: ['minibank-frontend-vmax.onrender.com']
   }
     }),
   ],
