@@ -14,6 +14,10 @@ router.post('/login', async (req, res) => {
     console.log("📥 Requête reçue :", req.body);
 
     const { email, motDePasse } = req.body;
+    if (!email || !motDePasse) {
+      console.warn("❌ Champs manquants");
+      return res.status(400).json({ error: "Champs requis manquants" });
+    }
     
     if (!user) {
       console.warn("❌ Utilisateur introuvable :", email);
