@@ -30,8 +30,8 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("✅ Connexion MongoDB réussie"))
 .catch((err) => console.error("❌ Erreur MongoDB :", err));
 
-// Routes ici...
-app.listen(5000, () => console.log(' Serveur lancé sur http://localhost:5000'));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`✅ Serveur lancé sur http://localhost:${PORT}`));
 
 // 🔒 Route non trouvée
 app.use((req, res, next) => {
