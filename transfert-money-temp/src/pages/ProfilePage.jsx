@@ -39,7 +39,7 @@ const ProfilePage = () => {
 
   const handleSave = async () => {
   try {
-    const response = await fetch("https://application-minibank-agent.onrender.com/api/utilisateurs/${user._id}", {
+    const response = await fetch(`https://application-minibank-agent.onrender.com/api/utilisateurs/${user._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -393,7 +393,7 @@ const paginatedUsers = filteredUsers.slice(
             />
           </TableCell>
           <TableCell>
-            <Avatar src={`http://localhost:5000/images/${user.photo}`} alt={user.nom} />
+            <Avatar src={`https://application-minibank-agent.onrender.com/images/${user.photo}`} alt={user.nom} />
           </TableCell>
           <TableCell>{user.nom}</TableCell>
           <TableCell>{user.prenom}</TableCell>

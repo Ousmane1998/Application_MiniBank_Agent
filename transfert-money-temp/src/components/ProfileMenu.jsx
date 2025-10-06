@@ -13,12 +13,19 @@ const ProfileMenu = () => {
   const [userPhoto, setUserPhoto] = useState("");
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
+    
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      setUserPhoto(user.photo || "https://i.pravatar.cc/150?u=default");
+      const baseURL = "https://application-minibank-agent.onrender.com/images/";
+      setUserPhoto(
+  user.photo?.startsWith("http")
+    ? user.photo
+    : `${baseURL}${user.photo || "default.jpg"}`
+);
     }
   }, []);
 
