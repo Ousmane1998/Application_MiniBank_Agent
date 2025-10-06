@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
       adresse: "Dakar",
       role: "Agent",
       carte_identite: "AG123456",
-      photo: "http://localhost:5000/images/agent.jpg",
+      photo: "https://application-minibank-agent.onrender.com/images/agent.jpg",
       date_naissance: new Date("1990-01-01"),
       mot_de_passe: "agent123"
     },
@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
       adresse: "Dakar",
       role: "Agent",
       carte_identite: "AG123456",
-      photo: "http://localhost:5000/images/agent.jpg",
+      photo: "https://application-minibank-agent.onrender.com/images/agent.jpg",
       date_naissance: new Date("1990-01-01"),
       mot_de_passe: "agent123"
     },
@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
       adresse: "Kaolack",
       role: "Client",
       carte_identite: "CL987654",
-      photo: "http://localhost:5000/images/agent.jpg",
+      photo: "https://application-minibank-agent.onrender.com/images/agent.jpg",
       date_naissance: new Date("1995-05-05"),
       mot_de_passe: "client123"
     },
@@ -49,7 +49,7 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
       adresse: "Thiès",
       role: "Distributeur",
       carte_identite: "DS654321",
-      photo: "http://localhost:5000/images/agent.jpg",
+      photo: "https://application-minibank-agent.onrender.com/agent.jpg",
       date_naissance: new Date("1988-03-15"),
       mot_de_passe: "distrib123"
     }
