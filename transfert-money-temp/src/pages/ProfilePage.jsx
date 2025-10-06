@@ -91,7 +91,7 @@ const ProfilePage = () => {
                 src={
                   user.photo.startsWith("data:")
                     ? user.photo
-                    : `http://localhost:5000/images/${user.photo}`
+                    : `https://application-minibank-agent.onrender.com/images/${user.photo}`
                 }
                 alt="Photo de profil"
                 style={{
