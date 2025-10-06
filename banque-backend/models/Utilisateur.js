@@ -10,7 +10,11 @@ const utilisateurSchema = new mongoose.Schema({
   date_naissance: Date,
   carte_identite: String,
   role: { type: String, enum: ['Client', 'Distributeur','Agent'] }, // ✅ Agent exclu
-  mot_de_passe: String,
+ mot_de_passe: {
+  type: String,
+  required: true,
+  select: false
+},
   is_archived: { type: Boolean, default: false },
   is_blocking: { type: Boolean, default: false },
 }, { timestamps: true });

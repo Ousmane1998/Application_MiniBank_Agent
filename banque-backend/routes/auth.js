@@ -19,9 +19,9 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-     const user = await Utilisateur.findOne({ email });
-
-
+    const user = await Utilisateur.findOne({ email }).select(
+      "nom prenom email telephone adresse role photo mot_de_passe"
+    );
 
     if (!user) {
       console.warn("❌ Utilisateur introuvable :", email);
